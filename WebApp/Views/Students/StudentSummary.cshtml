@@ -1,0 +1,45 @@
+﻿<script src="~/js/Student/StudentSummary.js?v=11"></script>
+<script type="text/javascript" src="assets/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap-table.js"></script>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css?v=3" rel="stylesheet" />
+<script src="bootstrap-autocomplete.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@v2.3.7/dist/latest/bootstrap-autocomplete.min.js"></script>
+
+<div class="row">
+    <div class="col-12">
+        <h4 style="text-shadow:10px"><b>Summary of All Students</b></h4><br>
+    </div>
+
+    <div class="col-md-12">
+        <div class="fresh-table full-color-orange">
+            <div>
+                <h>
+                    <b>Filter by ModuleCode:</b>
+                </h><br>
+                <input id="myInput" type="text" placeholder="CMPG313..." class="form-control basicAutoComplete" style="border-color: #a778ab" autocomplete="off" data-url="https://localhost:5001/api/module/List"><br>
+                <button class="btn btn-primary" id="btnFilter" style=" border-color: #a778ab ">Filter</button><br><br>
+                <button class="btn btn-primary" id="btnClearSearch" style="float: left; border-color: #a778ab ">Clear Search</button>
+                <div class="fresh-table full-color-orange">
+
+                </div>
+
+                <button class="btn btn-primary" id="btnAdd" style="float: right; border-color: #a778ab">Add Student</button><br><br>
+                <div class="toolbar">
+                </div>
+                <table id="Table" class="table table-striped table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Student ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Date of Enrollment</th>
+                            <th>Active</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

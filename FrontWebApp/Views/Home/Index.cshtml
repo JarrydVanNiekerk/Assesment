@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="placeholders">
+    <div class="row d-flex justify-content-start">
+        <div class="col-md-2 mb-3 placeholder">
+            <img class="img-fluid " alt="200x200" src="~/Images/200.png">
+        </div>
+        <div class="col-md-3">
+            <h2>Student Management Console</h2>
+            <p>
+            </p>
+            <p>
+                <button class="textButton k-primary">Primary Button</button>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <h2>&nbsp;</h2>
+            <p>
+            </p>
+            <p>
+                <button class="textButton">Button</button>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <h2>&nbsp;</h2>
+            <p>
+            </p>
+            <p>
+                <button class="textButton">Button</button>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div id="grid"></div>     
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".textButton").kendoButton();
+        $("#grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "https://localhost:5001/api/student/"
+                },
+                schema: {
+                    model: {
+                        fields: {
+                            StudentId: { type: "number" },
+                            FirstName: { type: "string" },
+                            LastName: { type: "string" },
+                            DateofEnrollment: { type: "date" },
+                            Active: { type: "string" }
+                        }
+                    }
+                },
+                pageSize: 20
+            },
+            height: 550,
+            filterable: true,
+            sortable: true,
+            pageable: true,
+            columns: [{
+                    field:"StudentId",
+                    filterable: false
+                }, {
+                    field: "FirstName",
+                    title: "First Name",
+                }, {
+                    field: "LastName",
+                    title: "Last Name"
+                }, {
+                    field: "DateofEnrollment",
+                    title: "Date of Enrollment",
+                    format: "{0:yyyy/MM/dd}"
+                }
+            ]
+        });
+    });
+</script>
